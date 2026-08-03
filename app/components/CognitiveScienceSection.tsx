@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
+import { assetUrl } from '@/app/lib/assets';
 import ResilientImage from '@/app/components/ResilientImage';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -153,9 +154,9 @@ function Section02Question() {
 /* ─── Section 03 — Frame Rate Comparison ─── */
 
 const FRAME_RATE_ITEMS = [
-  { fps: '24', label: '24fps', desc: '电影感', filter: 'none', accent: false, src: '/24fps.jpg' },
-  { fps: '48', label: '48fps', desc: '中间状态', filter: 'none', accent: false, src: '/48fps.webp' },
-  { fps: '60', label: '60fps', desc: '电视感', filter: 'none', accent: true, src: '/60fps.webp' },
+  { fps: '24', label: '24fps', desc: '电影感', filter: 'none', accent: false, src: assetUrl('/24fps.jpg') },
+  { fps: '48', label: '48fps', desc: '中间状态', filter: 'none', accent: false, src: assetUrl('/48fps.webp') },
+  { fps: '60', label: '60fps', desc: '电视感', filter: 'none', accent: true, src: assetUrl('/60fps.webp') },
 ];
 
 function Section03FrameRate() {
@@ -566,7 +567,7 @@ function Section07Fovea() {
         style={{ aspectRatio: '1', maxHeight: '45vh' }}
       >
         <ResilientImage
-          src="/human-eye-diagram.svg"
+          src={assetUrl('/human-eye-diagram.svg')}
           alt="Human eye cross-section — fovea centralis highlighted in retina"
           className="w-full h-full object-contain"
           style={{ filter: 'invert(1) hue-rotate(180deg)' }}

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { assetUrl } from '@/app/lib/assets';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -23,7 +24,7 @@ const MEDIA = {
   ],
   perceptual: ['https://images.unsplash.com/photo-1743930286867-acbd47f58e8b?w=1600&q=88'],
   semantic: [
-    '/ai-semantic-evaluation.jpg',
+    assetUrl('/ai-semantic-evaluation.jpg'),
   ],
   cultural: [
     'https://images.unsplash.com/photo-1723476519181-c7b229149c43?w=1600&q=88',

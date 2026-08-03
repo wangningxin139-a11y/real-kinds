@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
+import { assetUrl } from '@/app/lib/assets';
 import ResilientImage from '@/app/components/ResilientImage';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -190,11 +191,11 @@ const GAME_IMAGES = [
     alt: 'Real landscape — golden hour mountain range (Sony Alpha)',
   },
   {
-    src: '/horizon-landscape.jpg',
+    src: assetUrl('/horizon-landscape.jpg'),
     alt: 'Horizon Forbidden West — sweeping valley landscape',
   },
   {
-    src: '/death-stranding-landscape.jpg',
+    src: assetUrl('/death-stranding-landscape.jpg'),
     alt: 'Death Stranding — Iceland-style mountain environment',
   },
   {

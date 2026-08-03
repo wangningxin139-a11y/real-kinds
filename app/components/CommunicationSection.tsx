@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
+import { assetUrl } from '@/app/lib/assets';
 import ResilientImage from '@/app/components/ResilientImage';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -64,7 +65,7 @@ function Section02Question() {
 /* ─── Section 03 — John Berger / Ways of Seeing ─── */
 
 const BERGER_IMAGES = [
-  { src: '/john-berger.jpg', alt: 'John Berger portrait', label: 'John Berger' },
+  { src: assetUrl('/john-berger.jpg'), alt: 'John Berger portrait', label: 'John Berger' },
   { src: 'https://images.unsplash.com/photo-1526243741027-444d633d7365?w=480&q=80', alt: 'Ways of Seeing book cover', label: 'Ways of Seeing' },
   { src: 'https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?w=480&q=80', alt: 'Seeing photography', label: 'Ways of Seeing' },
 ];
@@ -141,7 +142,7 @@ function Section03Berger() {
 const BARTHES_IMAGES = [
   { src: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=600&q=80', alt: 'Camera', label: '相机' },
   { src: 'https://images.unsplash.com/photo-1770045232304-cc0b4d1a6121?w=600&q=88', alt: 'Hong Kong street photography', label: '街头摄影' },
-  { src: '/roland-barthes.jpg', alt: 'Roland Barthes portrait', label: 'Roland Barthes' },
+  { src: assetUrl('/roland-barthes.jpg'), alt: 'Roland Barthes portrait', label: 'Roland Barthes' },
   { src: 'https://images.unsplash.com/photo-1468276311594-df7cb65d8df6?w=600&q=80', alt: 'Old camera', label: '报道摄影' },
 ];
 
@@ -251,7 +252,7 @@ function Section05McLuhan() {
           className="aspect-[4/3] overflow-hidden rounded-sm bg-bg-elevated"
         >
           <ResilientImage
-            src="/marshall-mcluhan.jpg"
+            src={assetUrl('/marshall-mcluhan.jpg')}
             alt="Marshall McLuhan with television"
             className="w-full h-full object-cover"
             loading="lazy"
@@ -1070,7 +1071,7 @@ const AI_IMAGES = [
   { src: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500&q=80', alt: 'AI neural network', label: 'AI 神经网络' },
   { src: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=500&q=80', alt: 'AI robot', label: 'AI 机器人' },
   { src: 'https://images.unsplash.com/photo-1770368787714-4e5a5ea557fd?w=500&q=88', alt: 'Algorithmic social image', label: 'AI 视觉文化' },
-  { src: '/ai-semantic-evaluation.jpg', alt: 'AI semantic evaluation case', label: 'AI 生成' },
+  { src: assetUrl('/ai-semantic-evaluation.jpg'), alt: 'AI semantic evaluation case', label: 'AI 生成' },
 ];
 
 function Section13AI() {
