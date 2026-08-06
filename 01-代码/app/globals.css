@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Reset ─── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: #000000;
+  color: #F5F5F5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
+
+body {
+  background: #000000;
+  overflow-x: hidden;
+}
+
+/* ─── Fonts ─── */
+/* Note: For production, self-host HarmonyOS Sans SC and SF Pro Display.
+   These fallbacks approximate the intended look. */
+
+@font-face {
+  font-family: 'HarmonyOS Sans SC';
+  src: local('PingFang SC'), local('Noto Sans SC');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('-apple-system'), local('Helvetica Neue');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: #4EA1FF;
+  color: #111111;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+/* ─── Reference links ─── */
+.reference-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.75rem;
+  color: #8A8A8A;
+  font-family: var(--font-en), -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-size: clamp(0.75rem, 0.85vw, 0.875rem);
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  transition: color 180ms ease;
+}
+
+.reference-link:hover {
+  color: #F5F5F5;
+}
+
+/* ─── Lenis ─── */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
