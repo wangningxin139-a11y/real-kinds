@@ -26,7 +26,7 @@ const DISCIPLINES: Discipline[] = [
     subtitle: '图像如何形成？',
     hoverEn: 'Camera does not capture reality.\nIt reconstructs reality.',
     hoverCn: '相机不是复制现实。\n而是在重建现实。',
-    direction: 'left', posX: '12%', posY: '44%',
+    direction: 'left', posX: '18%', posY: '42%',
   },
   {
     id: 'cognitive-science',
@@ -35,7 +35,7 @@ const DISCIPLINES: Discipline[] = [
     subtitle: '人如何感知图像？',
     hoverEn: 'Reality is not received.\nIt is predicted.',
     hoverCn: '真实不是被接收。\n而是被预测。',
-    direction: 'right', posX: '88%', posY: '44%',
+    direction: 'right', posX: '82%', posY: '42%',
   },
   {
     id: 'communication',
@@ -44,7 +44,7 @@ const DISCIPLINES: Discipline[] = [
     subtitle: '为什么一种图像会成为"真实"？',
     hoverEn: 'Reality is constructed\nthrough collective belief.',
     hoverCn: '真实由共同相信建构。',
-    direction: 'top', posX: '50%', posY: '20%',
+    direction: 'top', posX: '50%', posY: '14%',
   },
   {
     id: 'computer-graphics',
@@ -53,7 +53,7 @@ const DISCIPLINES: Discipline[] = [
     subtitle: '世界如何被模拟？',
     hoverEn: 'A simulated world\ncan still feel unreal.',
     hoverCn: '模拟世界，\n依然可能不真实。',
-    direction: 'bottom', posX: '50%', posY: '60%',
+    direction: 'bottom', posX: '50%', posY: '64%',
   },
 ];
 
@@ -76,6 +76,7 @@ function cubicBezierPath(a: Point, b: Point, pull: number = 0): string {
 
 export default function KnowledgeLandscape() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<HTMLDivElement>(null);
   const pathGroupRef = useRef<SVGGElement>(null);
   const played = useRef<Record<string, boolean>>({});
   const ready = useRef(false);
@@ -83,13 +84,13 @@ export default function KnowledgeLandscape() {
 
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [belLines, setBelLines] = useState<string[]>([]);
-  const [aiLines, setAiLines] = useState<string[]>([]);
+  const [aiLines, setAiLines] = useState<Array<string | null>>([]);
   const [showAll, setShowAll] = useState(false);
 
   /* ─── Measure DOM & compute SVG paths ─── */
 
   const measure = useCallback(() => {
-    const section = sectionRef.current;
+    const section = mapRef.current;
     if (!section) return;
 
     const rect = section.getBoundingClientRect();
@@ -115,44 +116,73 @@ export default function KnowledgeLandscape() {
       }
     };
 
-    const belCenter = centerOf('[data-node="believability"]');
-    const belL = edgeOf('[data-node="believability"]', 'left');
-    const belR = edgeOf('[data-node="believability"]', 'right');
-    const belT = edgeOf('[data-node="believability"]', 'top');
-    const belB = edgeOf('[data-node="believability"]', 'bottom');
+    // Treat the English title and Chinese subtitle as one protected block.
+    // Connection lines anchor outside this block instead of touching the
+    // English heading itself, which previously made the downward path run
+    // through “真实感”.
+    const belCenter = centerOf('[data-anchor="believability-block"]');
+    const belL = edgeOf('[data-anchor="believability-block"]', 'left');
+    const belR = edgeOf('[data-anchor="believability-block"]', 'right');
+    const belT = edgeOf('[data-anchor="believability-block"]', 'top');
+    const belB = edgeOf('[data-anchor="believability-block"]', 'bottom');
 
-    const dToBel: Point[] = DISCIPLINES.map((d) => {
-      const sel = `[data-node="${d.id}"]`;
-      switch (d.direction) {
-        case 'left':   return edgeOf(sel, 'right');
-        case 'right':  return edgeOf(sel, 'left');
-        case 'top':    return edgeOf(sel, 'bottom');
-        case 'bottom': return edgeOf(sel, 'top');
-      }
-    });
+    const centerClearance = 18;
+    belL.x -= centerClearance;
+    belR.x += centerClearance;
+    belT.y -= centerClearance;
+    belB.y += centerClearance;
 
-    const dToAi: Point[] = DISCIPLINES.map((d) => edgeOf(`[data-node="${d.id}"]`, 'bottom'));
+    const photoRight = edgeOf('[data-node="photography"]', 'right');
+    const cognitiveLeft = edgeOf('[data-node="cognitive-science"]', 'left');
+    const communicationBottom = edgeOf('[data-node="communication"]', 'bottom');
+    const graphicsTop = edgeOf('[data-node="computer-graphics"]', 'top');
+    const graphicsBottom = edgeOf('[data-node="computer-graphics"]', 'bottom');
     const aiTop = edgeOf('[data-node="ai-eval"]', 'top');
-    const aiLeft = edgeOf('[data-node="ai-eval"]', 'left');
-    const aiRight = edgeOf('[data-node="ai-eval"]', 'right');
 
-    if (belCenter.x === 0 || dToBel.some((p) => p.x === 0) || aiTop.x === 0) return;
+    if (
+      belCenter.x === 0 || photoRight.x === 0 || cognitiveLeft.x === 0 ||
+      communicationBottom.x === 0 || graphicsTop.x === 0 || aiTop.x === 0
+    ) return;
 
-    const belEdge: Record<string, Point> = {
-      photography: belL, 'cognitive-science': belR, communication: belT, 'computer-graphics': belB,
-    };
-
-    // Bel → disciplines: straight lines (pull=0) forming the cross
-    setBelLines(DISCIPLINES.map((d, i) => cubicBezierPath(belEdge[d.id], dToBel[i], 0)));
+    // A mathematically strict cross: left/right paths share one y-axis value;
+    // top/bottom paths share one x-axis value. This remains orthogonal even
+    // when labels have different heights or font metrics.
+    setBelLines([
+      cubicBezierPath(
+        { x: photoRight.x, y: belCenter.y },
+        { x: belL.x, y: belCenter.y },
+        0
+      ),
+      cubicBezierPath(
+        { x: belR.x, y: belCenter.y },
+        { x: cognitiveLeft.x, y: belCenter.y },
+        0
+      ),
+      cubicBezierPath(
+        { x: belCenter.x, y: communicationBottom.y },
+        { x: belCenter.x, y: belT.y },
+        0
+      ),
+      cubicBezierPath(
+        { x: belCenter.x, y: belB.y },
+        { x: belCenter.x, y: graphicsTop.y },
+        0
+      ),
+    ]);
 
     // Disciplines → AI: arc outward to avoid crossing center text
-    const aiPathData: Array<{ id: string; from: Point; to: Point; pull: number }> = [
-      { id: 'photography',        from: dToAi[0], to: aiLeft,  pull:  80 },
-      { id: 'cognitive-science',  from: dToAi[1], to: aiRight, pull: -80 },
-      { id: 'communication',      from: dToAi[2], to: aiLeft,  pull: 280 }, // wide arc left to avoid Believability
-      { id: 'computer-graphics',  from: dToAi[3], to: aiTop,   pull:   0 },
+    const aiPathData: Array<{ id: string; from: Point; to: Point; pull: number } | null> = [
+      null,
+      null,
+      null,
+      {
+        id: 'computer-graphics',
+        from: { x: belCenter.x, y: graphicsBottom.y },
+        to: { x: belCenter.x, y: aiTop.y },
+        pull: 0,
+      },
     ];
-    setAiLines(aiPathData.map((d) => cubicBezierPath(d.from, d.to, d.pull)));
+    setAiLines(aiPathData.map((d) => d ? cubicBezierPath(d.from, d.to, d.pull) : null));
     ready.current = true;
   }, []);
 
@@ -281,10 +311,10 @@ export default function KnowledgeLandscape() {
     pathsInited.current = true;
 
     // Set initial GSAP transforms
-    gsap.set('[data-node="believability"]', { xPercent: -50, scale: 0.95 });
-    gsap.set('[data-node="believability-cn"]', { xPercent: -50, scale: 0.95 });
-    DISCIPLINES.forEach((d) => gsap.set(`[data-node="${d.id}"]`, { xPercent: -50, y: 20 }));
-    gsap.set('[data-node="ai-eval"]', { xPercent: -50, y: 20 });
+    gsap.set('[data-node="believability"]', { scale: 0.95 });
+    gsap.set('[data-node="believability-cn"]', { scale: 0.95 });
+    DISCIPLINES.forEach((d) => gsap.set(`[data-node="${d.id}"]`, { y: 20 }));
+    gsap.set('[data-node="ai-eval"]', { y: 20 });
 
     // Hide SVG paths via GSAP set (so GSAP knows values for later fromTo)
     pathGroup.querySelectorAll<SVGPathElement>('path').forEach((p) => {
@@ -328,13 +358,15 @@ export default function KnowledgeLandscape() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-black overflow-hidden"
+      className="relative w-full bg-black"
       style={{ minHeight: '150vh' }}
     >
+      <div ref={mapRef} className="sticky top-0 h-screen w-full overflow-hidden">
       {/* ═══ Center: Believability / 真实感 ═══ */}
       <div
-        className="absolute left-1/2 text-center pointer-events-none z-20"
-        style={{ top: '44%', opacity: showAll ? 1 : undefined }}
+        data-anchor="believability-block"
+        className="absolute left-1/2 -translate-x-1/2 bg-black px-5 py-4 text-center pointer-events-none z-20"
+        style={{ top: '42%', opacity: showAll ? 1 : undefined }}
       >
         <h2
           data-node="believability"
@@ -355,7 +387,7 @@ export default function KnowledgeLandscape() {
         <div
           key={d.id}
           data-node={d.id}
-          className="absolute z-10 discipline-node opacity-0"
+          className="absolute z-10 discipline-node -translate-x-1/2 bg-black px-5 py-4 opacity-0"
           style={{ left: d.posX, top: d.posY }}
         >
           <motion.div
@@ -409,8 +441,8 @@ export default function KnowledgeLandscape() {
       {/* ═══ Convergence: AI Image Evaluation ═══ */}
       <div
         data-node="ai-eval"
-        className="absolute left-1/2 text-center pointer-events-none z-20 opacity-0"
-        style={{ bottom: '14%' }}
+        className="absolute left-1/2 -translate-x-1/2 bg-black px-5 py-3 text-center pointer-events-none z-20 opacity-0"
+        style={{ bottom: '9%' }}
       >
         <h3 className="font-en text-[clamp(0.875rem,1.3vw,1.375rem)] font-medium text-accent tracking-[0.02em] leading-tight">
           AI Image Evaluation
@@ -436,6 +468,7 @@ export default function KnowledgeLandscape() {
             />
           ))}
           {aiLines.map((d, i) => (
+            d ? (
             <path
               key={`ai-${i}`}
               className={`path-to-ai path-ai-${DISCIPLINES[i]?.id}`}
@@ -446,9 +479,11 @@ export default function KnowledgeLandscape() {
               strokeLinecap="round"
               style={{ transition: 'stroke 0.3s ease' }}
             />
+            ) : null
           ))}
         </g>
       </svg>
+      </div>
     </section>
   );
 }

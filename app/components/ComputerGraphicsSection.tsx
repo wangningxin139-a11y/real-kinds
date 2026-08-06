@@ -528,9 +528,10 @@ function Section06PBR() {
         <p className="font-en text-[clamp(0.625rem,0.85vw,0.875rem)] text-text-tertiary mt-2 tracking-[0.12em]">
           Physically Based Rendering
         </p>
+        <p className="mt-1 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">基于物理的渲染</p>
         <a href="https://learnopengl.com/PBR/Theory" target="_blank" rel="noopener noreferrer"
-           className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mt-1">
-          ↗ learnopengl.com
+           className="reference-link mt-1">
+          参考资料 ↗
         </a>
       </motion.div>
 
@@ -580,9 +581,10 @@ function Section07RayTracing() {
         className="text-center mb-8"
       >
         <h2 className="font-en text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-text tracking-tight">Ray Tracing</h2>
+        <p className="mt-2 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">光线追踪</p>
         <a href="https://developer.nvidia.com/rtx/ray-tracing" target="_blank" rel="noopener noreferrer"
-           className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mt-1">
-          ↗ nvidia.com/rtx
+           className="reference-link mt-1">
+          参考资料 ↗
         </a>
       </motion.div>
 
@@ -636,9 +638,10 @@ function Section08GlobalIllumination() {
         className="text-center mb-8"
       >
         <h2 className="font-en text-[clamp(1.25rem,2.5vw,2.5rem)] font-bold text-text tracking-tight">Global Illumination</h2>
+        <p className="mt-2 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">全局光照</p>
         <a href="https://en.wikipedia.org/wiki/Global_illumination" target="_blank" rel="noopener noreferrer"
-           className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mt-1">
-          ↗ wikipedia.org
+           className="reference-link mt-1">
+          参考资料 ↗
         </a>
       </motion.div>
 
@@ -700,9 +703,10 @@ function Section09SSS() {
       >
         Subsurface Scattering
       </motion.h2>
+      <p className="-mt-5 mb-2 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">次表面散射</p>
       <a href="https://en.wikipedia.org/wiki/Subsurface_scattering" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mt-1">
-        ↗ wikipedia.org
+         className="reference-link mt-1">
+        参考资料 ↗
       </a>
 
       <div className="grid grid-cols-5 gap-3 max-w-3xl w-full mb-10">
@@ -772,9 +776,10 @@ function Section10MotionBlur() {
       >
         Motion Blur
       </motion.h2>
+      <p className="-mt-5 mb-2 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">运动模糊</p>
       <a href="https://en.wikipedia.org/wiki/Motion_blur#In_computer_graphics" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mt-1">
-        ↗ wikipedia.org
+         className="reference-link mt-1">
+        参考资料 ↗
       </a>
 
       <motion.div
@@ -830,9 +835,10 @@ function Section11TemporalAA() {
       >
         Temporal Anti-Aliasing
       </motion.h2>
+      <p className="-mt-5 mb-2 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">时间抗锯齿</p>
       <a href="https://developer.unigine.com/en/docs/2.21/principles/render/antialiasing/taa" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mt-1">
-        ↗ unigine.dev
+         className="reference-link mt-1">
+        参考资料 ↗
       </a>
 
       <motion.div
@@ -1296,32 +1302,6 @@ function Section19Summary() {
   );
 }
 
-/* ─── Section 20 — Transition ─── */
-
-function Section20Transition() {
-  return (
-    <section className="relative flex flex-col items-center justify-center w-full bg-black select-none" style={{ height: '100dvh' }}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-20%' }}
-        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-        className="text-center"
-      >
-        <h2 className="font-en text-[clamp(1.5rem,4vw,4rem)] font-bold text-text tracking-tight leading-none">
-          Cognitive Science
-        </h2>
-        <p className="font-cn text-[clamp(0.75rem,1.2vw,1.25rem)] text-text-secondary mt-5 tracking-[0.04em]">
-          认知科学
-        </p>
-        <p className="font-en text-[clamp(0.5rem,0.8vw,0.875rem)] text-text-tertiary mt-3 tracking-[0.12em]">
-          Human Perception
-        </p>
-      </motion.div>
-    </section>
-  );
-}
-
 /* ═══════════════════════════════════════════════════════════════
    Main Export
    ═══════════════════════════════════════════════════════════════ */
@@ -1348,7 +1328,6 @@ export default function ComputerGraphicsSection() {
       <Section16Experience />
       <Section18ExperienceVsReality />
       <Section19Summary />
-      <Section20Transition />
     </section>
   );
 }

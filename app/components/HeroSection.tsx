@@ -82,7 +82,7 @@ export default function HeroSection() {
   return (
     <>
       {/* ─── ScrollTrigger spacer ─── */}
-      <div ref={spacerRef} className="h-screen w-full" />
+      <div ref={spacerRef} data-logo-hero-trigger className="h-screen w-full" />
 
       {/* ─── Fixed hero title overlay ─── */}
       <div className="fixed inset-0 pointer-events-none z-40 flex items-center justify-center">
@@ -119,6 +119,7 @@ export default function HeroSection() {
           >
             真实感的 N 次建构
           </p>
+          <div data-logo-anchor="start" className="mx-auto mt-8 h-[92px] w-[92px]" />
         </div>
       </div>
     </>

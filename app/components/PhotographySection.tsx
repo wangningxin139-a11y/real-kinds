@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
+import { assetUrl } from '@/app/lib/assets';
 import ResilientImage from '@/app/components/ResilientImage';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -178,10 +179,10 @@ function Section02Question() {
 /* ─── Section 03 — Four Photos 2×2 ─── */
 
 const GRID_IMAGES = [
-  { src: 'https://images.unsplash.com/photo-1588979355313-6711a095465f?w=600&h=600&fit=crop&q=80', alt: '' },
-  { src: 'https://images.unsplash.com/photo-1765893080835-5c2295e53206?w=600&h=600&fit=crop&q=80', alt: '' },
-  { src: 'https://images.unsplash.com/photo-1544077449-199c4040f04a?w=600&h=600&fit=crop&q=80', alt: '' },
-  { src: 'https://images.unsplash.com/photo-1523820193903-f8a04a20ac6f?w=600&h=600&fit=crop&q=80', alt: '' },
+  { src: assetUrl('/media/real/photo-life-01.jpg'), alt: '' },
+  { src: assetUrl('/media/real/photo-life-02.jpg'), alt: '' },
+  { src: assetUrl('/media/real/photo-life-03.jpg'), alt: '' },
+  { src: assetUrl('/media/real/photo-life-04.jpg'), alt: '' },
 ];
 
 function Section03FourPhotos() {
@@ -789,7 +790,7 @@ function Section09Documentary() {
             className="overflow-hidden bg-bg-elevated"
           >
             <ResilientImage
-              src="https://images.unsplash.com/photo-1765700798051-54b54d251b23?w=700&h=500&fit=crop&q=80"
+              src={assetUrl('/media/real/documentary-01.webp')}
               alt=""
               className="w-full h-full object-cover"
               style={{ aspectRatio: '7/5' }}
@@ -804,7 +805,7 @@ function Section09Documentary() {
             className="overflow-hidden bg-bg-elevated"
           >
             <ResilientImage
-              src="https://images.unsplash.com/photo-1608721279136-cd41b752fa41?w=700&h=500&fit=crop&q=80"
+              src={assetUrl('/media/real/commercial-portrait-01.jpg')}
               alt=""
               className="w-full h-full object-cover"
               style={{ aspectRatio: '7/5' }}
@@ -884,7 +885,7 @@ function Section10NewsPhoto() {
           className="overflow-hidden bg-bg-elevated"
         >
           <ResilientImage
-            src="https://images.unsplash.com/photo-1528190240347-03ccaffd0674?w=700&h=500&fit=crop&q=80"
+            src={assetUrl('/media/news/news-01.jpg')}
             alt=""
             className="w-full h-full object-cover"
             style={{ aspectRatio: '7/5' }}
@@ -899,7 +900,7 @@ function Section10NewsPhoto() {
           className="overflow-hidden bg-bg-elevated"
         >
           <ResilientImage
-            src="https://images.unsplash.com/photo-1556912300-3017f3de2aa6?w=700&h=500&fit=crop&q=80"
+            src={assetUrl('/media/news/news-02.webp')}
             alt=""
             className="w-full h-full object-cover"
             style={{ aspectRatio: '7/5' }}
@@ -996,41 +997,6 @@ function Section11Summary() {
   );
 }
 
-/* ─── Section 12 — Transition to CG ─── */
-
-function Section12Transition() {
-  return (
-    <section className="relative flex flex-col items-center justify-center w-full bg-black select-none" style={{ height: '100dvh' }}>
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: '-20%' }}
-        transition={{ duration: 1.2, ease: 'easeOut' }}
-        className="text-center"
-      >
-        <h2 className="font-en text-[clamp(2rem,6vw,5rem)] font-bold tracking-tight text-text">
-          Computer Graphics
-        </h2>
-        <p className="font-cn text-[clamp(0.875rem,1.5vw,1.25rem)] text-text-secondary mt-5 tracking-[0.06em]">
-          计算机图形学
-        </p>
-        <p className="font-cn text-[clamp(0.6875rem,0.9vw,0.875rem)] text-text-tertiary mt-6 tracking-[0.12em]">
-          World Simulation
-        </p>
-      </motion.div>
-
-      {/* Subtle divider line */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: 0.5 }}
-        className="absolute bottom-[15%] left-1/2 -translate-x-1/2 w-6 h-px bg-border origin-center"
-      />
-    </section>
-  );
-}
-
 /* ═══════════════════════════════════════════════════════════════
    Main Component
    ═══════════════════════════════════════════════════════════════ */
@@ -1049,7 +1015,6 @@ export default function PhotographySection() {
       <Section09Documentary />
       <Section10NewsPhoto />
       <Section11Summary />
-      <Section12Transition />
     </section>
   );
 }

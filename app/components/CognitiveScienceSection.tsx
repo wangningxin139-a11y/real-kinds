@@ -297,8 +297,8 @@ function Section05SoapOpera() {
         肥皂剧效应
       </motion.p>
       <a href="https://en.wikipedia.org/wiki/Motion_interpolation#Soap_opera_effect" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mt-1">
-        ↗ wikipedia.org
+         className="reference-link mt-1">
+        参考资料 ↗
       </a>
 
       <motion.div
@@ -393,11 +393,11 @@ function Section06PredictiveCoding() {
         transition={{ duration: 0.6 }}
         className="font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] text-text-tertiary mb-8 tracking-[0.12em]"
       >
-        大脑的工作机制
+        Predictive Coding · 预测编码
       </motion.p>
       <a href="https://en.wikipedia.org/wiki/Predictive_coding" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mt-1">
-        ↗ wikipedia.org
+         className="reference-link mt-1">
+        参考资料 ↗
       </a>
 
       <motion.div
@@ -553,8 +553,8 @@ function Section07Fovea() {
         中央凹
       </motion.p>
       <a href="https://en.wikipedia.org/wiki/Fovea_centralis" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mt-1">
-        ↗ wikipedia.org
+         className="reference-link mt-1">
+        参考资料 ↗
       </a>
 
       {/* Eyeball cross-section diagram */}
@@ -606,9 +606,10 @@ function Section08PeripheralVision() {
       >
         Peripheral Vision
       </motion.h2>
+      <p className="-mt-5 mb-2 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">周边视觉</p>
       <a href="https://en.wikipedia.org/wiki/Peripheral_vision" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mt-1">
-        ↗ wikipedia.org
+         className="reference-link mt-1">
+        参考资料 ↗
       </a>
 
       <motion.div
@@ -757,8 +758,8 @@ function Section09Saccade() {
         眼跳
       </motion.p>
       <a href="https://en.wikipedia.org/wiki/Saccade" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mt-1">
-        ↗ wikipedia.org
+         className="reference-link mt-1">
+        参考资料 ↗
       </a>
 
       <motion.div
@@ -846,9 +847,10 @@ function Section10Gestalt() {
       >
         Gestalt Principles
       </motion.h2>
+      <p className="-mt-7 mb-2 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">格式塔原则</p>
       <a href="https://en.wikipedia.org/wiki/Gestalt_psychology" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mt-1">
-        ↗ wikipedia.org
+         className="reference-link mt-1">
+        参考资料 ↗
       </a>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl w-full mb-10">
@@ -952,9 +954,10 @@ function Section11TemporalResolution() {
       >
         Temporal Resolution
       </motion.h2>
+      <p className="-mt-5 mb-2 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">时间分辨率</p>
       <a href="https://en.wikipedia.org/wiki/Temporal_resolution#Vision" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mt-1">
-        ↗ wikipedia.org
+         className="reference-link mt-1">
+        参考资料 ↗
       </a>
 
       {/* Visual: frame rate bar comparison */}
@@ -1044,9 +1047,10 @@ function Section12Attention() {
       >
         Attention
       </motion.h2>
+      <p className="-mt-5 mb-2 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">注意力</p>
       <a href="https://en.wikipedia.org/wiki/Selective_attention" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mt-1">
-        ↗ wikipedia.org
+         className="reference-link mt-1">
+        参考资料 ↗
       </a>
 
       <motion.div
@@ -1059,7 +1063,7 @@ function Section12Attention() {
         onClick={() => setShowHint(!showHint)}
       >
         <ResilientImage
-          src="https://images.unsplash.com/photo-1520529277867-dbf8c5e0b340?w=1200&q=90"
+          src={assetUrl('/media/theory/attention.jpg')}
           alt="Attention demonstration"
           className="w-full h-full object-cover"
           loading="lazy"
@@ -1107,11 +1111,11 @@ function Section12Attention() {
 
 /* ─── Section 13 — Uncanny Valley ─── */
 
-const UNCANY_IMAGES = [
-  { label: '卡通', src: 'https://images.unsplash.com/photo-1707396172424-f3293f788364?w=300&q=90', x: 8 },
-  { label: '动画', src: 'https://images.unsplash.com/photo-1743247299142-35028faf885d?w=300&q=90', x: 35 },
-  { label: '数字人', src: 'https://images.unsplash.com/photo-1662323399513-8e5e8efe5a08?w=300&q=90', x: 62 },
-  { label: '真人', src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=90', x: 88 },
+const UNCANNY_IMAGES = [
+  { label: '卡通', src: assetUrl('/media/theory/uncanny-cartoon.png'), point: { x: 126, y: 76 } },
+  { label: '动画', src: assetUrl('/media/theory/uncanny-animation.jpg'), point: { x: 244, y: 96 } },
+  { label: '数字人', src: assetUrl('/media/theory/uncanny-digital-human.png'), point: { x: 534, y: 62 } },
+  { label: '“真人”', src: assetUrl('/media/theory/uncanny-real-person.png'), point: { x: 354, y: 180 } },
 ];
 
 function Section13UncannyValley() {
@@ -1136,8 +1140,8 @@ function Section13UncannyValley() {
         恐怖谷
       </motion.p>
       <a href="https://en.wikipedia.org/wiki/Uncanny_valley" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mt-1">
-        ↗ wikipedia.org
+         className="reference-link mt-1">
+        参考资料 ↗
       </a>
 
       {/* 4 Faces */}
@@ -1148,7 +1152,7 @@ function Section13UncannyValley() {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="grid grid-cols-4 gap-3 max-w-2xl w-full mb-8"
       >
-        {UNCANY_IMAGES.map((item, i) => (
+        {UNCANNY_IMAGES.map((item, i) => (
           <motion.div
             key={item.label}
             initial={{ opacity: 0, y: 16 }}
@@ -1173,63 +1177,61 @@ function Section13UncannyValley() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: '-10%' }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="w-full max-w-xl"
+        className="w-full max-w-3xl"
       >
-        <svg viewBox="0 0 400 160" className="w-full h-auto">
+        <svg viewBox="0 0 640 280" className="w-full h-auto overflow-visible">
           {/* Axes */}
-          <line x1="30" y1="130" x2="380" y2="130" stroke="#444444" strokeWidth="1" />
-          <line x1="30" y1="130" x2="30" y2="15" stroke="#444444" strokeWidth="1" />
+          <line x1="70" y1="220" x2="580" y2="220" stroke="#444444" strokeWidth="1" />
+          <line x1="70" y1="220" x2="70" y2="32" stroke="#444444" strokeWidth="1" />
 
           {/* Y-axis label */}
-          <text x="18" y="75" textAnchor="middle" transform="rotate(-90 18 75)" className="font-en" fill="#555555" fontSize="8">
+          <text x="38" y="126" textAnchor="middle" transform="rotate(-90 38 126)" className="font-en" fill="#777777" fontSize="12">
             Familiarity
           </text>
+          <text x="52" y="126" textAnchor="middle" transform="rotate(-90 52 126)" className="font-cn" fill="#555555" fontSize="10">熟悉度</text>
           {/* X-axis label */}
-          <text x="205" y="150" textAnchor="middle" className="font-en" fill="#555555" fontSize="8">
+          <text x="325" y="258" textAnchor="middle" className="font-en" fill="#777777" fontSize="12">
             Human Likeness →
           </text>
+          <text x="325" y="274" textAnchor="middle" className="font-cn" fill="#555555" fontSize="10">类人程度</text>
 
           {/* The Uncanny Valley curve */}
           <path
-            d="M 35 40 C 60 30, 90 25, 120 30 C 150 35, 180 55, 200 70 C 220 85, 240 100, 260 95 C 280 90, 310 65, 340 45 C 360 35, 370 30, 375 28"
+            d="M 80 98 C 126 66, 178 66, 224 88 C 272 112, 314 162, 354 180 C 396 198, 442 132, 482 98 C 518 70, 550 56, 575 48"
             fill="none"
             stroke="#e0e0e0"
-            strokeWidth="1.5"
+            strokeWidth="2"
             strokeLinecap="round"
           />
 
           {/* Shaded valley area */}
           <path
-            d="M 180 130 L 180 65 C 200 80, 220 92, 240 95 C 260 92, 280 80, 300 60 L 300 130 Z"
+            d="M 288 220 L 288 128 C 314 164, 334 176, 354 180 C 380 187, 402 162, 424 138 L 424 220 Z"
             fill="white"
             opacity="0.04"
           />
 
-          {/* Valley label */}
-          <text x="240" y="115" textAnchor="middle" className="font-cn" fill="#666666" fontSize="8">
+          {/* The valley is a region, not a fourth category. */}
+          <text x="354" y="202" textAnchor="middle" className="font-cn" fill="#B0B0B0" fontSize="13">
             恐怖谷
           </text>
-          <text x="240" y="125" textAnchor="middle" className="font-en" fill="#444444" fontSize="7">
+          <text x="354" y="216" textAnchor="middle" className="font-en" fill="#666666" fontSize="10">
             Uncanny Valley
           </text>
 
-          {/* Data points matching images */}
-          {UNCANY_IMAGES.map((item, i) => {
-            const px = 30 + (item.x / 100) * 350;
-            // Map x to curve y
-            const nx = item.x / 100;
-            const yPos = 130 - (15 + 90 * Math.exp(-Math.pow((nx - 0.15) / 0.15, 2)) + 60 * Math.exp(-Math.pow((nx - 0.9) / 0.12, 2)) - 35 * Math.exp(-Math.pow((nx - 0.5) / 0.12, 2)));
+          {/* Each dot, guide and label shares the same fixed x-coordinate. */}
+          {UNCANNY_IMAGES.map((item) => {
+            const { x, y } = item.point;
             return (
               <g key={item.label}>
-                <circle cx={px} cy={yPos} r="3" fill="#e0e0e0" />
-                <line x1={px} y1={yPos + 3} x2={px} y2={130} stroke="#444444" strokeWidth="0.5" strokeDasharray="2 2" />
+                <line x1={x} y1={y + 7} x2={x} y2="220" stroke="#555555" strokeWidth="1" strokeDasharray="4 5" />
+                <circle cx={x} cy={y} r="5" fill="#F5F5F5" />
+                <text x={x} y="244" textAnchor="middle" className="font-cn" fill="#A0A0A0" fontSize="12">
+                  {item.label}
+                </text>
               </g>
             );
           })}
-
-          {/* Annotations on curve */}
-          <text x="75" y="20" className="font-en" fill="#555555" fontSize="7" textAnchor="middle">卡通</text>
-          <text x="270" y="18" className="font-en" fill="#555555" fontSize="7" textAnchor="middle">真人</text>
         </svg>
       </motion.div>
 
@@ -1241,7 +1243,7 @@ function Section13UncannyValley() {
         className="text-center mt-8 max-w-lg"
       >
         <p className="font-cn text-[clamp(0.75rem,1.1vw,1.125rem)] text-text-secondary leading-relaxed tracking-[0.04em]">
-          越接近真人，
+          越接近“真人”，
           <br />
           越容易暴露错误。
         </p>

@@ -65,9 +65,9 @@ function Section02Question() {
 /* ─── Section 03 — John Berger / Ways of Seeing ─── */
 
 const BERGER_IMAGES = [
-  { src: assetUrl('/john-berger.jpg'), alt: 'John Berger portrait', label: 'John Berger' },
-  { src: 'https://images.unsplash.com/photo-1526243741027-444d633d7365?w=480&q=80', alt: 'Ways of Seeing book cover', label: 'Ways of Seeing' },
-  { src: 'https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?w=480&q=80', alt: 'Seeing photography', label: 'Ways of Seeing' },
+  { src: assetUrl('/media/theory/seeing-01.jpg'), alt: 'Ways of Seeing visual study', label: 'Ways of Seeing' },
+  { src: assetUrl('/media/theory/seeing-02.jpg'), alt: 'Ways of Seeing visual study', label: 'Ways of Seeing' },
+  { src: assetUrl('/media/theory/seeing-03.jpg'), alt: 'Ways of Seeing visual study', label: 'Ways of Seeing' },
 ];
 
 function Section03Berger() {
@@ -91,9 +91,10 @@ function Section03Berger() {
       >
         John Berger · 1972
       </motion.p>
+      <p className="-mt-6 mb-2 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">观看之道</p>
       <a href="https://en.wikipedia.org/wiki/Ways_of_Seeing" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mb-8">
-        ↗ wikipedia.org
+         className="reference-link mb-8">
+        参考资料 ↗
       </a>
 
       {/* 2×2 image grid */}
@@ -140,10 +141,10 @@ function Section03Berger() {
 /* ─── Section 04 — Roland Barthes / Camera Lucida ─── */
 
 const BARTHES_IMAGES = [
-  { src: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=600&q=80', alt: 'Camera', label: '相机' },
-  { src: 'https://images.unsplash.com/photo-1770045232304-cc0b4d1a6121?w=600&q=88', alt: 'Hong Kong street photography', label: '街头摄影' },
-  { src: assetUrl('/roland-barthes.jpg'), alt: 'Roland Barthes portrait', label: 'Roland Barthes' },
-  { src: 'https://images.unsplash.com/photo-1468276311594-df7cb65d8df6?w=600&q=80', alt: 'Old camera', label: '报道摄影' },
+  { src: assetUrl('/media/theory/camera-lucida-01.png'), alt: 'Camera Lucida visual archive', label: 'Camera Lucida' },
+  { src: assetUrl('/media/theory/camera-lucida-02.png'), alt: 'Camera Lucida family photograph', label: '旧照片' },
+  { src: assetUrl('/media/theory/roland-barthes.png'), alt: 'Roland Barthes portrait', label: 'Roland Barthes' },
+  { src: assetUrl('/media/theory/camera-lucida-03.png'), alt: 'Camera Lucida portrait study', label: '肖像' },
 ];
 
 function Section04Barthes() {
@@ -167,9 +168,10 @@ function Section04Barthes() {
       >
         Roland Barthes · 1980
       </motion.p>
+      <p className="-mt-6 mb-2 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">明室</p>
       <a href="https://en.wikipedia.org/wiki/Camera_Lucida_(book)" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mb-8">
-        ↗ wikipedia.org
+         className="reference-link mb-8">
+        参考资料 ↗
       </a>
 
       {/* 2×2 grid of documentary photography */}
@@ -236,9 +238,10 @@ function Section05McLuhan() {
       >
         Marshall McLuhan · 1964
       </motion.p>
+      <p className="-mt-6 mb-2 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">媒介即讯息</p>
       <a href="https://en.wikipedia.org/wiki/The_medium_is_the_message" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mb-8">
-        ↗ wikipedia.org
+         className="reference-link mb-8">
+        参考资料 ↗
       </a>
 
       {/* Media evolution images */}
@@ -316,8 +319,8 @@ function Section06NewsPhoto() {
         新闻照片为什么天然可信？
       </motion.h3>
       <a href="https://en.wikipedia.org/wiki/Photojournalism" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] text-center mb-8">
-        ↗ wikipedia.org
+         className="reference-link text-center mb-8">
+        参考资料 ↗
       </a>
 
       {/* News photos */}
@@ -329,7 +332,7 @@ function Section06NewsPhoto() {
           transition={{ duration: 0.6 }}
           className="aspect-[4/3] overflow-hidden rounded-sm bg-bg-elevated"
         >
-          <ResilientImage src="https://images.unsplash.com/photo-1518932945647-7a1c969f8be2?w=700&q=80" alt="Camera lens" className="w-full h-full object-cover" loading="lazy" />
+          <ResilientImage src={assetUrl('/media/news/news-03.jpg')} alt="Documentary childhood" className="w-full h-full object-cover" loading="lazy" />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -338,7 +341,7 @@ function Section06NewsPhoto() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="aspect-[4/3] overflow-hidden rounded-sm bg-bg-elevated"
         >
-          <ResilientImage src="https://images.unsplash.com/photo-1518842211865-af929433718c?w=700&q=88" alt="Taiwan public scene" className="w-full h-full object-cover" loading="lazy" />
+          <ResilientImage src={assetUrl('/media/news/news-04.jpg')} alt="Decisive moment" className="w-full h-full object-cover" loading="lazy" />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -347,7 +350,7 @@ function Section06NewsPhoto() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="aspect-[4/3] overflow-hidden rounded-sm bg-bg-elevated"
         >
-          <ResilientImage src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=700&q=80" alt="Digital media" className="w-full h-full object-cover" loading="lazy" />
+          <ResilientImage src={assetUrl('/media/news/news-05.jpg')} alt="Street documentary" className="w-full h-full object-cover" loading="lazy" />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -356,7 +359,7 @@ function Section06NewsPhoto() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="aspect-[4/3] overflow-hidden rounded-sm bg-bg-elevated"
         >
-          <ResilientImage src="https://images.unsplash.com/photo-1758274252219-5f20097548c9?w=700&q=88" alt="Asian public communication context" className="w-full h-full object-cover" loading="lazy" />
+          <ResilientImage src={assetUrl('/media/news/news-06.jpg')} alt="Public event news photograph" className="w-full h-full object-cover" loading="lazy" />
         </motion.div>
       </div>
 
@@ -407,10 +410,10 @@ function Section06NewsPhoto() {
 /* ─── Section 07 — 24fps as film language ─── */
 
 const FILM_IMAGES = [
-  { src: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&q=80', alt: 'Cinema projector' },
-  { src: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80', alt: 'Movie theater' },
-  { src: 'https://images.unsplash.com/photo-1515634928627-2a4e0dae3ddf?w=600&q=80', alt: '35mm film strip' },
-  { src: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=600&q=80', alt: 'Film reel' },
+  { src: assetUrl('/media/theory/film-01.jpg'), alt: '《美丽人生》电影画面' },
+  { src: assetUrl('/media/theory/film-02.jpg'), alt: '《霸王别姬》电影画面' },
+  { src: assetUrl('/media/theory/film-03.jpg'), alt: '《游览意大利》电影画面' },
+  { src: assetUrl('/media/theory/film-04.jpg'), alt: '奥黛丽·赫本电影画面' },
 ];
 
 function Section07FilmLanguage() {
@@ -435,8 +438,8 @@ function Section07FilmLanguage() {
         为什么24fps成为电影语言？
       </motion.p>
       <a href="https://en.wikipedia.org/wiki/24p" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mb-8">
-        ↗ wikipedia.org
+         className="reference-link mb-8">
+        参考资料 ↗
       </a>
 
       {/* Film images 2×2 */}
@@ -520,7 +523,7 @@ function Section08iPhoneVisualHabit() {
   const nodeW = 140;
   const nodeH = 48;
   const gap = 28;
-  const startX = 60;
+  const startX = 40;
   const y = 100;
 
   return (
@@ -545,11 +548,11 @@ function Section08iPhoneVisualHabit() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: '-10%' }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="w-full max-w-2xl mb-10"
+        className="w-full max-w-5xl mb-10"
       >
         <svg
           ref={svgRef}
-          viewBox="0 0 700 200"
+          viewBox="0 0 920 200"
           className="w-full h-auto"
           style={{ maxHeight: '45vh' }}
         >
@@ -693,9 +696,10 @@ function Section09StuartHall() {
       >
         Stuart Hall · 1973
       </motion.p>
+      <p className="-mt-6 mb-2 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">编码／解码</p>
       <a href="https://en.wikipedia.org/wiki/Encoding/decoding_model_of_communication" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mb-8">
-        ↗ wikipedia.org
+         className="reference-link mb-8">
+        参考资料 ↗
       </a>
 
       {/* SVG: Encoding → Media → Decoding */}
@@ -762,9 +766,10 @@ function Section09StuartHall() {
 /* ─── Section 10 — Baudrillard / Simulacra ─── */
 
 const SIMULACRA_IMAGES = [
-  { src: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&q=80', alt: 'Las Vegas', label: '现实' },
-  { src: 'https://images.unsplash.com/photo-1518938630361-6245118b5415?w=600&q=88', alt: 'Photography apparatus', label: '照片' },
-  { src: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&q=80', alt: 'Social media aesthetic', label: '社交媒体' },
+  { src: assetUrl('/media/theory/simulacra-01.jpg'), alt: '拟像视觉案例一', label: '现实' },
+  { src: assetUrl('/media/theory/simulacra-02.jpg'), alt: '拟像视觉案例二', label: '照片' },
+  { src: assetUrl('/media/theory/simulacra-03.jpg'), alt: '拟像视觉案例三', label: '社交媒体' },
+  { src: assetUrl('/media/theory/simulacra-04.jpg'), alt: '拟像视觉案例四', label: 'AI生成' },
 ];
 
 function Section10Baudrillard() {
@@ -788,13 +793,14 @@ function Section10Baudrillard() {
       >
         Jean Baudrillard · 1981
       </motion.p>
+      <p className="-mt-6 mb-2 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">拟像</p>
       <a href="https://en.wikipedia.org/wiki/Simulacra_and_Simulation" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mb-8">
-        ↗ wikipedia.org
+         className="reference-link mb-8">
+        参考资料 ↗
       </a>
 
       {/* Three images cascading — reality → photo → social media → AI */}
-      <div className="grid grid-cols-3 gap-2 max-w-xl w-full mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-3xl w-full mb-8">
         {SIMULACRA_IMAGES.map((img, i) => (
           <motion.div
             key={img.label}
@@ -807,23 +813,9 @@ function Section10Baudrillard() {
             <div className="w-full aspect-[3/4] overflow-hidden rounded-sm mb-2 bg-bg-elevated">
               <ResilientImage src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy" />
             </div>
-            <span className="font-cn text-[clamp(0.5rem,0.65vw,0.75rem)] text-text-tertiary tracking-[0.08em]">{img.label}</span>
           </motion.div>
         ))}
       </div>
-
-      {/* Arrow cascade */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: '-10%' }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className="text-center mb-6"
-      >
-        <p className="font-en text-[clamp(0.625rem,0.8vw,0.875rem)] text-text-tertiary tracking-[0.12em]">
-          现实 → 照片 → 社交媒体 → AI生成
-        </p>
-      </motion.div>
 
       {/* Text */}
       <motion.div
@@ -861,9 +853,10 @@ function Section11Framing() {
       >
         Framing
       </motion.h2>
+      <p className="-mt-5 mb-2 font-cn text-[clamp(0.625rem,0.85vw,0.875rem)] tracking-[0.1em] text-text-secondary">框架</p>
       <a href="https://en.wikipedia.org/wiki/Framing_(social_sciences)" target="_blank" rel="noopener noreferrer"
-         className="block font-en text-[clamp(0.375rem,0.45vw,0.5rem)] text-text-tertiary/30 hover:text-text-tertiary/60 transition-colors tracking-[0.12em] mb-8">
-        ↗ wikipedia.org
+         className="reference-link mb-8">
+        参考资料 ↗
       </a>
 
       {/* The same image — different crops */}
@@ -877,7 +870,7 @@ function Section11Framing() {
       >
         <div className="aspect-[16/9] overflow-hidden bg-bg-elevated relative">
           <ResilientImage
-            src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=800&q=80"
+            src={assetUrl('/media/theory/framing-01.jpg')}
             alt="Framing example"
             className="w-full h-full object-cover transition-all duration-700"
             style={{
@@ -1068,10 +1061,10 @@ function Section12RealityConstruction() {
 /* ─── Section 13 — AI & Visual Culture ─── */
 
 const AI_IMAGES = [
-  { src: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500&q=80', alt: 'AI neural network', label: 'AI 神经网络' },
-  { src: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=500&q=80', alt: 'AI robot', label: 'AI 机器人' },
-  { src: 'https://images.unsplash.com/photo-1770368787714-4e5a5ea557fd?w=500&q=88', alt: 'Algorithmic social image', label: 'AI 视觉文化' },
-  { src: assetUrl('/ai-semantic-evaluation.jpg'), alt: 'AI semantic evaluation case', label: 'AI 生成' },
+  { src: assetUrl('/media/ai/ai-01.jpg'), alt: 'AI visual culture study', label: 'AI 生成' },
+  { src: assetUrl('/media/ai/ai-02.jpg'), alt: 'AI visual culture study', label: 'AI 生成' },
+  { src: assetUrl('/media/ai/ai-03.jpg'), alt: 'AI visual culture study', label: 'AI 生成' },
+  { src: assetUrl('/media/ai/ai-04.jpg'), alt: 'AI visual culture study', label: 'AI 生成' },
 ];
 
 function Section13AI() {
