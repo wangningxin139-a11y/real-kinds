@@ -9,6 +9,8 @@ import ComputerGraphicsSection from '@/app/components/ComputerGraphicsSection';
 import CognitiveScienceSection from '@/app/components/CognitiveScienceSection';
 import CommunicationSection from '@/app/components/CommunicationSection';
 import AIImageEvaluationSection from '@/app/components/AIImageEvaluationSection';
+import GlobalNLogo from '@/app/components/GlobalNLogo';
+import ProgressRail from '@/app/components/ProgressRail';
 
 export default function HomePage() {
   return (
@@ -16,6 +18,8 @@ export default function HomePage() {
       <main className="relative bg-black">
         {/* ─── Film grain overlay (fixed) ─── */}
         <FilmGrain />
+        <GlobalNLogo />
+        <ProgressRail />
 
         {/* ─── Hero ─── */}
         <HeroSection />

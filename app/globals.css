@@ -54,6 +54,23 @@ body {
   background: transparent;
 }
 
+/* ─── Reference links ─── */
+.reference-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.75rem;
+  color: #8A8A8A;
+  font-family: var(--font-en), -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-size: clamp(0.75rem, 0.85vw, 0.875rem);
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  transition: color 180ms ease;
+}
+
+.reference-link:hover {
+  color: #F5F5F5;
+}
+
 /* ─── Lenis ─── */
 html.lenis {
   height: auto;
